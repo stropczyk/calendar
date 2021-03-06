@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block content %}
+<section id="main">
+    <div class="container" style="padding: 3rem; max-width: 60rem">
+        <div class="text-white">
+            <div class="col d-flex justify-content-center">
+                <div class="col-md-8 text-center">
+                    <p class="h2 mb-4">Make an appointment</p>
+                    <div class="row">
+                        <div class="col">
+                            <p class="h4">Date:</p>
+                        </div>
+                        <div class="col">
+                            <p class="h4">{{ e_date }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="h4">Time:</p>
+                        </div>
+                        <div class="col">
+                            <p class="h4">{{ e_time }}</p>
+                        </div>
+                    </div>
+                    <form action="" method="post">
+                        <div class="col mt-5 mb-3">
+                            <label for="name">Your name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ name }}" required>
+                            <div class="invalid-feedback">
+                                Valid name is required.
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" value="{{ email }}" required>
+                            <div class="invalid-feedback">
+                                Valid email is required.
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <label for="m_title">Meeting title</label>
+                            <select class="custom-select d-block w-100" name="m_title" id="m_title" required>
+                                <option value="">Choose...</option>
+                                <option>Professional issues</option>
+                                <option>Private issues</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please choose valid meeting title.
+                            </div>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" name="remind" id="save-info">
+                          <label class="custom-control-label" for="save-info">Remind me of the meeting.</label>
+                        </div>
+                        <hr class="mb-3">
+                        <input type="submit" value="Make an appointment." name="submit" class="btn btn-success btn-md">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

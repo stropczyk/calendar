@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<section id="google-auth">
+    <div class="container">
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <div class="text-white text-center">
+                <p class="lead">Please go to this URL and authenticate</p>
+                <p class="lead" style="word-break: break-all">{{ url }}</p>
+            </div>
+        </div>
+        <form action="/authorize-google" method="post">
+            <div class="form-group">
+                <input type="text" id="auth-google" name="auth-google" class="form-control rounded text-center" placeholder="Paste your verification code here.">
+            </div>
+            <div class="text-center">
+                <button type="submit" name="submit" value="submit" class="btn btn-success mt-3 me-auto">Authorize</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock content %}
