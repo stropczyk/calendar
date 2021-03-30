@@ -1,4 +1,4 @@
-FROM tiangolo/uwsgi-nginx-flask:python3.8-alpine
+FROM tiangolo/uwsgi-nginx-flask:python3.8
 ADD ./app /app
 COPY ./app/requirements.txt /app
 WORKDIR /app
