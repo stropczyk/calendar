@@ -21,7 +21,7 @@ services:
   calendar:
     container_name: calendar
     hostname: calendar
-    build: ./calendar
+    build: .
     image: calendar
     restart: unless-stopped
     env_file: .env
