@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+<section id="main">
+    <div class="container">
+        <div id="main-text">
+            <h1 class="display-3 text-light">Let's make the most of Our Calendar.</h1>
+            <a href="{{ url_for('main.calendar') }}" class="btn btn-sm btn-danger">Go to calendar!</a>
+        </div>
+    </div>
+</section>
+<section id="notes" class="bg-light">
+    <div class="container">
+        <div class="col d-flex justify-content-center">
+            <div class="card border-light bg-light mb-5">
+                <h5 class="card-text">This is a portfolio project.</h5>
+            </div>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <div class="card border-light bg-light mb-3">
+                <p class="card-text text-secondary">This application allows you to share your google calendar with your friends. Thanks to this, you can add common events without the risk of overlapping several events.</p>
+                <p class="card-text text-secondary">Now you have more control over your daily calendar and you can really enjoy your time!</p>
+            </div>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <div class="card border-light bg-light">
+                <p class="card-text text-secondary">The following application uses:</p>
+                <p class="card-text text-secondary">- Github oauth</p>
+                <p class="card-text text-secondary">- Google oauth</p>
+                <p class="card-text text-secondary">- Google Calendar API</p>
+                <p class="card-text text-secondary">- Flask library</p>
+                <p class="card-text text-secondary">- mongoDB database</p>
+                <p class="card-text text-secondary">- Bootstrap</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+

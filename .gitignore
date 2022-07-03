@@ -1,0 +1,10 @@
+venv/
+.idea/
+bootstrap-4.5.2/
+app/token.pickle
+app/credentials.json
+*.pyc
+.dockerignore
+.env
+calendar/token.pickle
+calendar/credentials.json

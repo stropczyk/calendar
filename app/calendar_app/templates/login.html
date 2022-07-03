@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+<section id="main">
+    <div class="container">
+        <div class="col d-flex justify-content-center mb-3">
+            <div class="text-dark text-center">
+                <p class="font-weight-bold h2 text-white" style="margin-bottom: 2rem;">Hi there! You are trying to make an appointment.</p>
+                <p class="h4 text-white">Please login first.</p>
+            </div>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <div class="row">
+                <div class="col mb-3">
+                    <a class="btn btn-block btn-social btn-github" href="{{ url_for('main.login_with_github') }}">
+                        <span class="fa fa-github"></span> Sign in with GitHub account.
+                    </a>
+                </div>
+                <div class="col">
+                    <a class="btn btn-block btn-social btn-google" href="{{ url_for('main.login_with_google') }}">
+                        <span class="fa fa-google"></span> Sign in with Google account.
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

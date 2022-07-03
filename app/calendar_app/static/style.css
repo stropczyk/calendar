@@ -1,0 +1,94 @@
+html, body {
+    height: 100%;
+}
+
+.jumbotron {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron h1 {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+#main {
+    background: url('img/calendar.jpeg') center center no-repeat;
+    background-size: cover;
+    color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#main .container {
+    max-width: 40rem;
+    background: rgba(52, 58, 64, 0.9);
+    padding: 2rem;
+}
+
+#main-text {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#main-text h1 {
+    font-weight: 450;
+    color: #343a40;
+}
+
+#notes .container {
+    padding: 5rem;
+    text-align: center;
+}
+
+#feature-one {
+    background: url('img/calendar.jpeg') center center no-repeat;
+    background-size: cover;
+    color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#google-auth {
+    background: url('img/calendar.jpeg') center center no-repeat;
+    background-size: cover;
+    color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#google-auth .container {
+    max-width: 60rem;
+    background: rgba(52, 58, 64, 0.9);
+    padding: 2rem;
+}

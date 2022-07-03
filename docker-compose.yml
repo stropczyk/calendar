@@ -1,0 +1,92 @@
+version: "3"
+
+services:
+
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - "MONGO_INITDB_DATABASE=$database"
+      - "MONGO_INITDB_ROOT_USERNAME=$dbUser"
+      - "MONGO_INITDB_ROOT_PASSWORD=$dbPwd"
+    volumes:
+      - mongo_db:/data/db
+    networks:
+      - backend
+
+  calendar:
+    container_name: calendar
+    hostname: calendar
+    build: .
+    image: calendar
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - "SECRET_KEY=$secret"
+      - "MONGO_DB_USERNAME=$dbUser"
+      - "MONGO_DB_PASSWORD=$dbPwd"
+      - "MONGO_DB_NAME=$database"
+      - "GH_CLIENT_ID=$ghID"
+      - "GH_SECRET=$ghSecret"
+      - "CALENDAR_ID=$calID"
+      - "MAIL_ADDRESS=$mail"
+      - "MAIL_PWD=$mailPwd"
+      - "SLACK_TOKEN=$slackToken"
+    depends_on:
+      - mongo
+    ports:
+      - "80:5000"
+    links:
+      - mongo
+    networks:
+      - backend
+
+  cron:
+    container_name: cron
+    build: ./cron
+    image: cron
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - "MONGO_DB_USERNAME=$dbUser"
+      - "MONGO_DB_PASSWORD=$dbPwd"
+      - "MONGO_DB_NAME=$database"
+      - "MAIL_ADDRESS=$mail"
+      - "MAIL_PWD=$mailPwd"
+    depends_on:
+      - mongo
+      - calendar
+    ports:
+      - "5001:5000"
+    links:
+      - mongo
+      - calendar
+    networks:
+      - backend
+
+  admin:
+    container_name: mongo-express
+    image: mongo-express
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "8081:8081"
+    environment:
+      - "ME_CONFIG_MONGODB_ADMINUSERNAME=$dbUser"
+      - "ME_CONFIG_MONGODB_ADMINPASSWORD=$dbPwd"
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    networks:
+      - backend
+
+networks:
+  backend:
+
+volumes:
+  mongo_db:
